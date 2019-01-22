@@ -1,0 +1,173 @@
+"An Event"
+type Event {
+
+	"Unique Identifier"
+	id:String!
+
+	"Name"
+	name:String!
+
+	"A short description"
+	shortDescription:String!
+
+	"The full description"
+	longDescription:String
+
+	"The content"
+	type:[Type]!
+
+	"The category"
+	category:[Category]!
+
+	"The main theme"
+	theme:[Theme]!
+
+	"Name of the place"
+	place:String!
+
+	"When it start (ex: 18-09-2018)"
+	startDate:String!
+
+	"When it end (ex: 19-09-2018)"
+	endDate:String!
+
+	"Schedules (ex: De 18h à 19h)"
+	schedules:String
+
+	"If the event is accessible for free"
+	isFree:Boolean
+
+	"List of prices, there are in €"
+	price:[Int]
+
+	"List of child prices, there are in €"
+	childPrice:[Int]
+
+	"Age group for price group"
+	childAgeGroup:String
+
+	"GPS Coordinates"
+	position:Geopoint!
+
+	"The municipality that manage the event (ex: TOULOUSE)"
+	municipality:String!
+
+	"Street address"
+	address:String
+
+	"Phone number"
+	phone:String
+
+	"Postal code"
+	postalCode:Int!
+
+	"URL for reservation"
+	websiteResa:String
+
+	"The nearest Tram or Metro station"
+	nearestStation:String
+
+}
+
+enum orderBy {
+
+	"Order by ascendant start date"
+	start_date_ASC
+
+	"Order by descendant start date"
+	start_date_DESC
+
+	"Order by ascendant end date"
+	end_date_ASC
+
+	"Order by descendant end date"
+	end_date_DESC
+
+}
+
+input dateRange {
+
+	"Start date in format: YYYY/mm/dd"
+	start:String
+
+	"End date in format: YYYY/mm/dd"
+	end:String
+}
+
+enum Theme {
+	MUSEE
+	DANSE
+	VIDEO
+	VIN
+	NAUTIC_SPORT
+	MUSIC_POP
+	MUSIC_CLASSIC
+	MUSIC_VARIETY
+	JAZZ
+	MODE
+	LITERATURE
+	YOUNG_AUDIENCE
+	HISTORIC
+	GASTRONOMIE
+	PLANTS
+	COMIC
+	CINEMA
+	BIO
+	ARTISANAT
+	CONTEMPORARY_ART
+	PHOTO
+	MISC
+}
+
+enum Type {
+	CULTURAL
+	COMMERCIAL
+	SPORT_AND_LEISUR
+	UNUSUAL
+	MUSIC
+	DANSE
+	NATURE_AND_RELAXATION
+	MISC
+}
+
+enum Category {
+	WALK
+	ANIMATIONS
+	GUIDED_TOURS
+	SPECTACLE
+	FESTIVAL
+	CONCERT
+	CINEMA
+	RECITAL
+	ENCOUNTERS
+	OPEN_HOUSE
+	OPERA
+	EXHIBITION
+	FAIR_OR_EXHIBITION
+	THEATER
+	FLEA_MARKET
+	MARKET
+	SPORT
+	MISC
+	
+}
+
+type Geopoint {
+	latitude:Float
+	longitude:Float
+}
+
+"Search in a zone with a radius in meters"
+input Geofilter {
+
+	latitude:Float
+	longitude:Float
+
+	"Radius for the search zone in meters"
+	radius:Float
+}
+
+type Query {
+	event(id:String!):Event!
+	events(descriptionContain:String,nearestStation:String,orderBy:orderBy,limit:Int,startDateRange:dateRange,endDateRange:dateRange):[Event]!
+}

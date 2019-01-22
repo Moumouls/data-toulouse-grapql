@@ -1,0 +1,41 @@
+{
+  "name": "data-toulouse-grapql",
+  "version": "1.0.0",
+  "description": "GraphQL Support for the Toulouse Métropole Open Data service",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "nodemon --config nodemon.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moumouls/data-toulouse-grapql.git"
+  },
+  "keywords": [
+    "graphql",
+    "toulouse",
+    "data",
+    "open",
+    "server"
+  ],
+  "author": "Antoine Cormouls (@Moumouls)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Moumouls/data-toulouse-grapql/issues"
+  },
+  "homepage": "https://github.com/Moumouls/data-toulouse-grapql#readme",
+  "dependencies": {
+    "@types/request-promise": "^4.1.42",
+    "graphql": "^14.1.1",
+    "graphql-yoga": "^1.17.0",
+    "merge-graphql-schemas": "^1.5.8",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
