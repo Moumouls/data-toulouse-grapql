@@ -30,3 +30,17 @@ Each dataset has its own entry at the root of the `Graphql Server`
 ⚠️ : in progress
 
 ✅ : Operational
+
+## Run the project
+First of all get into the directory an run :
+`npm i`
+> Intall all required packages
+
+And then run : 
+`npm run start`
+
+**Now the server run on `http://localhost:4004` and you can go to this url to play with the integrated `GraphQL PlayGround`**
+
+## Dev on the project
+Run : `npm i` before developing and then run : `npm run dev`
+> The server restart automatically when you save files in `src` directory
