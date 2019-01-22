@@ -34,7 +34,7 @@ Each dataset has its own entry at the root of the `Graphql Server`
 ## Run the project
 First of all get into the directory an run :
 `npm i`
-> Intall all required packages
+> Install all required packages
 
 And then run : 
 `npm run start`
