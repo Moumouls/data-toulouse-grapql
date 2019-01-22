@@ -1,3 +1,4 @@
+![](https://graphql.org/img/og_image.png)
 # Open GraphQL Toulouse
 
 ## What is GraphQL ?
