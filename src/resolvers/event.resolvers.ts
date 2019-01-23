@@ -1,18 +1,19 @@
 import * as request from "request-promise";
 import mapper from './event.mapper'
 const baseUrl = "https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse"
+import {Event,EventsQueryArgs,EventQueryArgs} from './types'
 
 module.exports = {
   Query: {
 
   	//Get a unique event
-    event: async (_, { id }) => {
+    event: async (_, { id }:EventQueryArgs):Promise<Event> => {
         const url = baseUrl+"&q=identifiant%3D"+id
         const results = await JSON.parse(await request(url));
         return mapper.main(results.records[0].fields)
     },
 
-    events: async (_, {nearestStation, orderBy, limit, startDateRange, endDateRange, descriptionContain}) => {
+    events: async (_, {nearestStation, orderBy, limit, startDateRange, endDateRange, descriptionContain}:EventsQueryArgs):Promise<Event[]> => {
         let hasArg = false;
         let query = "";
         let q = ""

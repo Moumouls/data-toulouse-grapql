@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node index.ts",
     "dev": "nodemon --config nodemon.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen-types": "gql-gen --config gql-gen.yml"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/Moumouls/data-toulouse-grapql#readme",
   "dependencies": {
+    "@types/graphql": "^14.0.5",
     "@types/request-promise": "^4.1.42",
     "graphql": "^14.1.1",
     "graphql-yoga": "^1.17.0",
@@ -36,6 +38,10 @@
     "typescript": "^3.2.4"
   },
   "devDependencies": {
+    "graphql-code-generator": "^0.16.0",
+    "graphql-codegen-typescript-common": "^0.16.0",
+    "graphql-codegen-typescript-resolvers": "^0.16.0",
+    "graphql-codegen-typescript-server": "^0.16.0",
     "nodemon": "^1.18.9"
   }
 }

@@ -11,7 +11,7 @@ type Event {
 	shortDescription:String!
 
 	"The full description"
-	longDescription:String
+	longDescription:String!
 
 	"The content"
 	type:[Type]!
@@ -68,8 +68,7 @@ type Event {
 	nearestStation:String
 
 }
-
-enum orderBy {
+enum OrderBy {
 
 	"Order by ascendant start date"
 	start_date_ASC
@@ -85,13 +84,13 @@ enum orderBy {
 
 }
 
-input dateRange {
+input DateRange {
 
 	"Start date in format: YYYY/mm/dd"
-	start:String
+	start:String!
 
 	"End date in format: YYYY/mm/dd"
-	end:String
+	end:String!
 }
 
 enum Theme {
@@ -153,21 +152,21 @@ enum Category {
 }
 
 type Geopoint {
-	latitude:Float
-	longitude:Float
+	latitude:Float!
+	longitude:Float!
 }
 
 "Search in a zone with a radius in meters"
 input Geofilter {
 
-	latitude:Float
-	longitude:Float
+	latitude:Float!
+	longitude:Float!
 
 	"Radius for the search zone in meters"
-	radius:Float
+	radius:Float!
 }
 
 type Query {
 	event(id:String!):Event!
-	events(descriptionContain:String,nearestStation:String,orderBy:orderBy,limit:Int,startDateRange:dateRange,endDateRange:dateRange):[Event]!
+	events(descriptionContain:String,nearestStation:String,orderBy:OrderBy,limit:Int,startDateRange:DateRange,endDateRange:DateRange):[Event]!
 }

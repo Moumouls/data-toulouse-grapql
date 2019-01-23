@@ -1,0 +1,9 @@
+schema: ./src/typeDefs/index.ts
+overwrite: true
+require:
+  - ts-node/register
+generates:
+  ./src/resolvers/types.ts:
+    plugins:
+      - typescript-common
+      - typescript-server

@@ -1,8 +1,9 @@
 import maps from "./event.maps"
+import {Event} from './types'
 
 const mapper = {
 
-    main: event => {
+    main: (event):Event => {
         return {
             id: event["identifiant"],
             name: event["nom_de_la_manifestation"],
@@ -40,7 +41,7 @@ const mapper = {
      * @param      {boolean}  reverse  The reverse
      * @return     {string[]}  { An array with values thats match the GraphQL spec }
      */
-    mapper: (mapName,values,reverse=false) => {
+    mapper: (mapName,values,reverse=false):any => {
         return values.map(v => {
             let searchIndex = 0;
             let resultIndex = 1;
