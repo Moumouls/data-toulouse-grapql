@@ -13,6 +13,7 @@ This project was created to facilitate the use of the service's data: `data.toul
 - Lack of documentation
 - The lack of ease of use of the global API
 - The lack of consistency through the data
+- Can't realize easy connections beetween Apis (Datasets)
 
 To offer a quality and useful GraphQL API, only the APIs on the most "popular" datasets will be integrated!
 
